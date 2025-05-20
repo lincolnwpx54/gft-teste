@@ -27,9 +27,9 @@ Este plano de recuperação de desastres tem como objetivo garantir a **continui
 
 ---
 
-## 🧱 Estratégias Adotadas
+## Estratégias Adotadas
 
-### 🔹 Banco de Dados
+### Banco de Dados
 
 - Utilização de serviço gerenciado com suporte a:
   - **Backups automáticos**
@@ -37,27 +37,27 @@ Este plano de recuperação de desastres tem como objetivo garantir a **continui
   - **Replicação multi-zona**
 - Read replica on-premises para contingência em falhas de conectividade com a nuvem.
 
-### 🔹 Serviços Cloud (Consolidação)
+### Serviços Cloud (Consolidação)
 
 - Executados em **Kubernetes gerenciado** com autoescalabilidade.
 - Replica pods automaticamente em múltiplas zonas.
 - **Reimplantações automatizadas** em caso de falhas de instância.
 - **Readiness e Liveness probes** para detectar falhas internas.
 
-### 🔹 Serviços On-Premises (Lançamentos)
+### Serviços On-Premises (Lançamentos)
 
 - VM principal com monitoramento ativo (Zabbix, Prometheus).
 - Failover manual ou automatizado para **VM standby** local.
 - Backups em disco externo e upload diário para nuvem.
 
-### 🔹 Cache (Redis)
+### Cache (Redis)
 
 - Redis gerenciado com failover automático.
 - Dados temporários; não impacta em consistência de negócios em caso de perda.
 
 ---
 
-## 🌐 Comunicação e Failover
+## Comunicação e Failover
 
 - Conexão **VPN Site-to-Site** redundante com failover automático entre túneis.
 - Cloud Load Balancers com **health checks** para direcionamento de tráfego.
@@ -65,21 +65,21 @@ Este plano de recuperação de desastres tem como objetivo garantir a **continui
 
 ---
 
-## 📑 Procedimentos de Recuperação
+## Procedimentos de Recuperação
 
-### 🧯 Em caso de falha no on-premises:
+### Em caso de falha no on-premises:
 1. Redirecionar DNS para versão na nuvem (se disponível).
 2. Promover VM standby (backup local).
 3. Restaurar dados a partir de backup incremental diário.
 
-### ☁️ Em caso de falha na cloud:
+### Em caso de falha na cloud:
 1. Redistribuir tráfego via backup DNS.
 2. Ativar leitura da réplica local do banco de dados.
 3. Executar serviços críticos locais temporariamente, com limitação funcional.
 
 ---
 
-## 🔄 Testes e Simulações
+## Testes e Simulações
 
 - Testes de restauração são realizados trimestralmente.
 - Simulações de falhas parciais (ex: perda de zona de disponibilidade).
@@ -87,7 +87,7 @@ Este plano de recuperação de desastres tem como objetivo garantir a **continui
 
 ---
 
-## 📘 Registro e Comunicação
+## Registro e Comunicação
 
 - Logs de incidentes armazenados e enviados para sistema de SIEM (ex: ELK, Cloud Logging).
 - Comunicação de falhas via Slack/Email com acionamento automático (ex: via PagerDuty ou Opsgenie).
@@ -95,7 +95,7 @@ Este plano de recuperação de desastres tem como objetivo garantir a **continui
 
 ---
 
-## 🛠️ Ferramentas Suporte ao DR
+## Ferramentas Suporte ao DR
 
 - **Terraform**: recriação rápida de ambientes via infraestrutura como código.
 - **Ansible**: configuração e aplicação rápida de servidores locais.
