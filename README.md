@@ -24,6 +24,7 @@ Este projeto foi desenvolvido como solução para o desafio técnico proposto pe
 | `automacao.md`    | Aplicação de Infraestrutura como Código (IaC)                             |
 | `dr.md`           | Plano de Disaster Recovery com RTO e RPO                                  |
 | `monitoramento.md`| Proposta de observabilidade e monitoramento da rede                      |
+| `seguranca.md`      | Estratégia de segurança, autenticação (AD), controle de acesso e hardening|
 | `osi.md`          | Aplicação do modelo OSI na solução para performance e segurança           |
 
 ## Diagrama de Topologia

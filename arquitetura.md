@@ -20,6 +20,7 @@ A solução foi desenhada para suportar os seguintes pilares:
 
 > Obs.: O diagrama encontra-se no diretório `diagrama/`.
 
+https://www.onemodel.app/d/z3kyrGSB5VHflEQbrTeDF
 ---
 
 ## Componentes Principais
