@@ -110,13 +110,3 @@ Todos os recursos possuem:
 - Conectividade estável entre ambientes
 
 ---
-
-## Anexos Recomendados
-
-- `diagramas/arquitetura-final.png`
-- `naming-convention.md`
-- `terraform/`
-- `playbooks-ansible/`
-- `README.md`
-
----

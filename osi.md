@@ -88,4 +88,3 @@ O modelo OSI (Open Systems Interconnection) é uma referência essencial para pr
 ## Conclusão
 
 A infraestrutura híbrida XPTO aplica o modelo OSI de forma prática e integrada em suas camadas críticas. Essa abordagem promove um ambiente mais seguro, monitorável e confiável para os serviços essenciais da empresa.
-

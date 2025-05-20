@@ -1,6 +1,6 @@
-# Estratégia de Monitoramento e Observabilidade
+# 📡 Estratégia de Monitoramento e Observabilidade
 
-## Objetivo
+## 🎯 Objetivo
 
 Garantir **alta visibilidade**, **detecção proativa de falhas** e **resposta rápida a incidentes**, monitorando todos os componentes da infraestrutura híbrida da XPTO, incluindo servidores, containers, rede, banco de dados, aplicações e usuários.
 
@@ -8,131 +8,130 @@ Garantir **alta visibilidade**, **detecção proativa de falhas** e **resposta r
 
 ## 1. Visão Geral
 
-A estratégia de monitoramento cobre três pilares da observabilidade:
+A estratégia cobre os três pilares da observabilidade:
 
 - **Métricas (Metrics)**
 - **Logs**
 - **Traces**
 
-Cada componente da infraestrutura é integrado a pelo menos uma dessas camadas de observação.
+Cada componente é integrado a pelo menos uma dessas camadas.
 
 ---
 
 ## 2. Componentes Monitorados
 
-| Componente               | Métricas           | Logs               | Alertas        |
-|--------------------------|--------------------|---------------------|----------------|
-| VMs On-Prem              | CPU, RAM, Disco     | Syslog, SSH, sudo   | Zabbix         |
-| VPN Site-to-Site         | Latência, uptime    | Logs de túnel       | Zabbix, Email  |
-| Load Balancer Local      | Conexões, status    | Logs de acesso      | Prometheus     |
-| Aplicação Lançamentos    | Tempo de resposta   | Acesso, erros       | Grafana Alerts |
-| Kubernetes (Cloud)       | Pods, HPA, CPU, RAM | Logs via Fluentd    | Cloud Alerts   |
-| Banco de Dados (Cloud)   | QPS, locks, conexões| Logs de query       | RDS Metrics    |
-| Redis                    | Hits/misses         | Operações de chave  | Cloud Monitor  |
-| API Gateway              | Latência, erros 4xx | Logs de requisição  | Cloud Alerts   |
+| Componente               | Métricas             | Logs                      | Alertas              |
+|--------------------------|----------------------|----------------------------|----------------------|
+| VMs On-Prem              | CPU, RAM, Disco       | Syslog, SSH, sudo          | Zabbix               |
+| VPN Site-to-Site         | Latência, uptime      | Logs de túnel              | Zabbix, Email        |
+| Load Balancer Local      | Conexões, status      | Logs de acesso             | Zabbix ou Prometheus |
+| Aplicação Lançamentos    | Tempo de resposta     | Logs de acesso e erros     | Grafana Alerts       |
+| AKS (Cloud)              | Pods, CPU, RAM, HPA   | Logs via Fluent Bit        | Azure Monitor Alerts |
+| PostgreSQL (Azure)       | QPS, locks, conexões  | Logs de query              | Azure Metrics        |
+| Azure Redis Cache        | Hits/misses, latência | Logs de operações de chave | Azure Monitor        |
+| API Management           | Latência, erros 4xx   | Logs de requisição         | Azure Alerts         |
 
 ---
 
-## 3. Monitoramento de Infraestrutura
+## 3. Monitoramento da Infraestrutura
 
-### On-Premises
-- **Zabbix** ou **Prometheus Node Exporter** para VMs, rede e sistema
-- **Grafana** para visualização consolidada
-- **Alertmanager** para disparo de alertas
+### 🏢 On-Premises
+- **Zabbix** (ou Prometheus Exporter) para VMs e rede local
+- **Grafana** para visualização unificada
 
-### Cloud
-- **Cloud Monitoring** (GCP/AWS/Azure)
-- **Kubernetes Metrics Server + Prometheus** (via Helm)
-- **Grafana Cloud ou self-hosted**
+### ☁️ Azure
+- **Azure Monitor** para métricas e alertas
+- **Azure Log Analytics Workspace** para logs centralizados
+- **Application Insights** para telemetria de aplicações (AKS, Functions)
+- **Grafana (com Azure Data Source)** opcional para painéis customizados
 
 ---
 
 ## 4. Logs e Auditoria
 
-- **Centralização de logs**:
-  - VMs on-prem: rsyslog → Zabbix ou ELK stack
-  - Cloud/K8s: Fluent Bit/Fluentd → Stackdriver, CloudWatch ou ELK
-- **Retenção:**
-  - 90 dias em tempo real
-  - 1 ano em armazenamento de baixo custo (S3, GCS, Azure Blob)
+- **Centralização de Logs**:
+  - VMs locais: rsyslog → Zabbix ou ELK
+  - Azure: Fluent Bit → **Log Analytics Workspace**
 
-- **Auditoria de eventos**:
+- **Retenção:**
+  - 90 dias no workspace
+  - 1 ano no **Azure Storage (Tier Archive)** para histórico
+
+- **Auditoria de Eventos**:
   - AD (on-prem): logins, alterações de grupo
-  - Kubernetes: eventos do cluster e RBAC
-  - Banco de dados: logs de slow queries e acessos privilegiados
+  - AKS: eventos de cluster, RBAC
+  - PostgreSQL: slow queries e acessos privilegiados
 
 ---
 
 ## 5. Dashboards e Métricas
 
-- **Grafana**: dashboards unificados com visão de:
-  - Tempo de resposta das APIs
-  - Uso de CPU/memória das VMs e pods
-  - Requisições por segundo nos serviços
-  - Falhas por código HTTP (404, 500, etc.)
-  - Latência na VPN e conectividade on-prem ↔ cloud
+- **Grafana** ou **Azure Dashboards**:
+  - Uso de CPU/RAM das VMs e pods
+  - Latência de APIs e serviços
+  - Tráfego de rede e falhas HTTP
+  - Consumo de recursos no Redis e PostgreSQL
 
-- **Painel especial para FinOps**:
-  - Custos por serviço
-  - Consumo por tag (ex: `env=prod`)
-  - Eficiência do HPA/Auto Scaling
+- **Painel FinOps**:
+  - Consumo por tag (`env`, `project`)
+  - Eficiência do HPA no AKS
+  - Análise de custos (via Azure Cost Management)
 
 ---
 
-## 6. Monitoramento da Rede
+## 6. Monitoramento de Rede
 
-- **VPN Gateway**:
-  - Ping, jitter e latência entre sites
-  - Logs de reconexão ou falhas
+- **VPN Gateway (Azure)**:
+  - Ping, jitter e uptime entre regiões/sites
 
-- **Firewall/IDS/IPS (on-premises)**:
-  - Logs de tráfego suspeito
-  - Bloqueios automáticos com Fail2Ban
+- **Firewall UTM (On-Premises)**:
+  - Tráfego suspeito e tentativas de acesso
+  - Bloqueio automático via Fail2Ban
 
-- **Traceroute/NetFlow**:
-  - Verificação de roteamento e gargalos
+- **NetFlow + Traceroute**:
+  - Diagnóstico de gargalos e roteamento
 
 ---
 
 ## 7. Alertas e Notificações
 
-- Integração com:
+- Integrações:
   - **Email**
-  - **Slack**
   - **Microsoft Teams**
-  - **Opsgenie** (para incidentes graves)
+  - **SMS**
+  - **Opsgenie ou PagerDuty**
 
-- **Tipos de Alertas**:
-  - Alta CPU ou memória
-  - Falha de VPN ou API
-  - Tempo de resposta elevado
-  - Queda de pod no Kubernetes
-  - Perda de conectividade com banco
+- Tipos de alerta:
+  - Alta CPU/memória
+  - Queda de pod no AKS
+  - Erros 5xx em APIs
+  - Falhas de conexão com banco ou VPN
 
 ---
 
 ## 8. Tracing e Diagnóstico
 
-- **OpenTelemetry** ou **Jaeger** (opcional)
-  - Rastreio de chamadas entre microserviços
-  - Análise de gargalos em requisições complexas
+- **Application Insights + Azure Monitor Logs**
+  - Rastreio de chamadas entre APIs (distributed tracing)
+  - Performance de chamadas REST/HTTP no AKS
+- **OpenTelemetry/Jaeger (opcional)**
 
 ---
 
 ## 9. Observabilidade e Segurança
 
-- Correlacionamento entre logs de segurança e acesso
-- Dashboards com tentativas de login mal sucedidas
-- Alertas para alterações em usuários, permissões e políticas
+- Dashboards com:
+  - Tentativas de login mal-sucedidas
+  - Logs de mudanças de RBAC e grupos
+  - Correlação de falhas com eventos de segurança
 
 ---
 
 ## 10. Futuras Evoluções
 
-- Adoção de **AI Ops** para detecção preditiva de falhas
-- Uso de **tempo de atividade por usuário** (end-to-end UX)
-- Integração com **grafana.oncall**, **LOKI**, ou **Tempo**
-- Aplicação de **SLA dashboard** com indicadores de uptime por serviço
+- Adoção de **Azure Monitor Workbooks** personalizados
+- Integração com **grafana.oncall**, **Azure Sentinel** (SIEM)
+- Uso de **Azure Machine Learning + Monitor** para AIOps
+- SLA dashboards por componente crítico
 
 ---
-

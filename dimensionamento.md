@@ -108,4 +108,3 @@ O dimensionamento da infraestrutura leva em consideração os dois serviços pri
 - Banco de dados com failover automático e backups diários.
 
 ---
-

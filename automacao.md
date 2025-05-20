@@ -17,15 +17,17 @@ Automatizar o provisionamento, configuração e manutenção da infraestrutura h
 
 ## Aplicações com Terraform
 
-Terraform será usado para provisionar:
+Terraform será usado para provisionar os principais componentes da infraestrutura no Azure:
 
-- Rede VPC/Subnets
-- Instâncias de VM (ambientes de dev, staging e prod)
-- Clusters Kubernetes (EKS, GKE, AKS)
-- Load Balancer + Auto Scaling Group
-- Banco de dados gerenciado (RDS, CloudSQL)
-- Cache Redis (gerenciado)
-- API Gateway e VPN Site-to-Site
+- **Azure Virtual Network (VNet)** com subnets segregadas (app, dados, gateway)
+- **Instâncias de VM** (para ambientes locais simulados, dev/stg/prod, se necessário)
+- **Cluster Kubernetes** com **Azure Kubernetes Service (AKS)**
+- **Azure Application Gateway** com WAF e TLS
+- **Azure PostgreSQL Flexible Server**, com backup automático e alta disponibilidade
+- **Azure Cache for Redis**, com conexão privada e TLS ativado
+- **Azure API Management (APIM)** para controle de chamadas e segurança de APIs
+- **Azure VPN Gateway** para conexão site-to-site com o ambiente on-premises
+- **Azure Key Vault**, **Log Analytics**, **Storage Accounts**, entre outros recursos auxiliares
 
 ### Estrutura do Projeto
 

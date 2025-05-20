@@ -1,74 +1,79 @@
-# Estratégia FinOps — Gestão de Custos em Infraestrutura Híbrida
+# 💰 Estratégia FinOps — Gestão de Custos em Infraestrutura Híbrida
 
-## Objetivo
+## 🎯 Objetivo
 
-A estratégia FinOps tem como foco **maximizar o valor da nuvem**, promovendo a eficiência financeira sem comprometer a performance ou a resiliência dos serviços. Neste projeto, são aplicadas práticas contínuas de **monitoramento, otimização e previsibilidade de custos**, alinhadas aos pilares do FinOps: **Colaboração, Visibilidade e Governança**.
+A estratégia FinOps tem como foco **maximizar o valor da nuvem Azure**, promovendo eficiência financeira sem comprometer a performance ou a resiliência dos serviços. O projeto adota práticas contínuas de **monitoramento, otimização e previsibilidade de custos**, alinhadas aos pilares: **Colaboração, Visibilidade e Governança**.
 
 ---
 
-## Abordagem por Ambiente
+## 🧭 Abordagem por Ambiente
 
-### On-Premises
+### 🏢 On-Premises
 
 - **Custo Fixo Controlado**
   - Aproveitamento da infraestrutura existente.
-  - Virtualização para melhor uso de recursos.
-  - Uso de ferramentas de monitoramento local (ex: Zabbix, Prometheus) para controle de consumo.
+  - Virtualização e consolidação de VMs para otimizar uso.
+  - Monitoramento de consumo com **Zabbix**.
 
-- **Desligamento programado de VMs redundantes** fora do horário de pico.
-
----
-
-### Cloud
-
-- **Escalabilidade sob demanda**
-  - Habilitação de **autoescalabilidade horizontal** no Kubernetes (ex: HPA).
-  - **Serverless functions** para workloads não contínuos (ex: geração de relatórios).
-
-- **Uso de Serviços Gerenciados**
-  - Redução de custos operacionais (manutenção, patches, backup).
-  - RDS/CloudSQL, Redis, API Gateway gerenciados.
-
-- **Previsibilidade**
-  - Reservas de instância ou planos de compromisso para serviços de uso contínuo.
-  - Alertas de gastos e orçamentos definidos por serviço.
-
-- **Desligamento Automático**
-  - Políticas para desligar ambientes de teste/dev fora do expediente.
+- **Eficiência Operacional**
+  - Desligamento programado de VMs redundantes fora do horário comercial.
+  - Automatizações com Ansible para backup e desligamento programado.
 
 ---
 
-## Práticas Adotadas
+### ☁️ Azure Cloud
+
+- **Escalabilidade sob Demanda**
+  - Autoescalabilidade horizontal no **AKS (HPA)**.
+  - Uso de **Azure Functions** para cargas pontuais (event-driven).
+
+- **Serviços Gerenciados**
+  - Menor custo de manutenção e operação.
+  - Adoção de **Azure PostgreSQL**, **Azure Redis Cache**, **APIM**, entre outros.
+
+- **Previsibilidade e Planejamento**
+  - Uso de **Azure Reservations** e **Savings Plans** para workloads contínuos.
+  - Definição de **orçamentos e alertas via Azure Cost Management**.
+
+- **Ambientes Inteligentes**
+  - Desligamento automático de recursos de DEV/STG fora do expediente.
+  - Agendamento via Azure Automation Runbooks.
+
+---
+
+## 📌 Práticas Adotadas
 
 | Estratégia                     | Descrição                                                                 |
 |-------------------------------|---------------------------------------------------------------------------|
-| **Tagueamento de Recursos**    | Identificação por ambiente, time, projeto (ex: `env=prod`, `team=fin`)   |
-| **Orçamentos e Alertas**       | Definição de limites de gastos mensais com alertas por e-mail/Slack       |
-| **Relatórios de Uso**          | Dashboards com uso por serviço, por equipe e por período                  |
-| **Rightsizing**                | Ajuste fino de máquinas e contêineres com base em métricas reais          |
-| **Reserva de Capacidade**      | Uso de instâncias reservadas ou savings plans para workloads estáticos    |
-| **Monitoramento por API**      | Integração com ferramentas como CloudWatch, Azure Monitor ou GCP Billing  |
+| **Tagueamento de Recursos**    | Tags como `project`, `env`, `owner`, `costcenter` para rastreamento      |
+| **Orçamentos e Alertas**       | Criados no Azure Cost Management + notificações via Teams ou Email       |
+| **Relatórios e Dashboards**    | Painéis de consumo via **Azure Monitor**, **Grafana**, ou **Power BI**   |
+| **Rightsizing**                | Ajustes baseados em métricas de CPU/memória via Azure Advisor            |
+| **Reserva de Capacidade**      | Uso de planos de economia (Savings Plans) para PostgreSQL, Redis, etc.   |
+| **Monitoramento via API**      | Integração com APIs do **Azure Billing** e **Azure Monitor**             |
 
 ---
 
-## Ferramentas
+## 🧰 Ferramentas Utilizadas
 
-- **Grafana + Prometheus** — para dashboards de consumo de recursos e métricas de uso.
-- **Cloud Billing** (AWS, GCP ou Azure) — para relatórios detalhados de custos por serviço.
-- **Terraform com Cost Estimation Plugins** — estimativa de custo por recurso na etapa de planejamento.
-- **Infracost** — cálculo automático de custos direto na PR do Git (para Terraform).
-
----
-
-## Governança de Custos
-
-- Reuniões mensais de revisão de gastos por time/produto.
-- Checklists de validação antes da criação de novos recursos.
-- Adoção de **ambientes segregados** (dev, staging, prod) com cotas e limites.
+- **Azure Cost Management + Billing** — controle e projeção de gastos
+- **Azure Advisor** — recomendações de otimização de custo/performance
+- **Terraform + Infracost** — estimativas de custo durante o `plan`
+- **Grafana + Azure Monitor** — dashboards em tempo real por ambiente
+- **Azure Policy** — restrição de SKUs e controle de uso indevido
 
 ---
 
-## Ciclo Contínuo de FinOps
+## 🏛️ Governança de Custos
+
+- Reuniões mensais por equipe/produto para análise de gastos
+- Validação obrigatória de tags e ambiente antes do provisionamento
+- Definição de cotas (`quotas`) por assinatura ou grupo de recursos
+- Auditoria contínua com Azure Policy e Cost Analysis
+
+---
+
+## 🔁 Ciclo Contínuo de FinOps
 
 ```mermaid
 graph TD

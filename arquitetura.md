@@ -32,27 +32,28 @@ https://www.onemodel.app/d/z3kyrGSB5VHflEQbrTeDF
   - Executado em uma VM com balanceador local (HAProxy/Nginx).
   - Comunicação segura com os componentes em nuvem via VPN e TLS.
 
-### Cloud (AWS/GCP/Azure)
+### ☁️ Cloud (Azure)
 
-- **Serviço de Consolidado Diário**
-  - Migrado para ambiente cloud com autoescalabilidade via Kubernetes.
-  - Exposto através de Load Balancer gerenciado (ex: ALB/GCLB).
-  - Executa em contêineres (EKS/GKE/AKS).
+- **Serviço Consolidado Diário**
+  - Hospedado no **Azure Kubernetes Service (AKS)** com autoescalabilidade (HPA).
+  - Utiliza **Azure Container Registry (ACR)** para imagens Docker.
+  - Exposto via **Azure Application Gateway** com WAF e TLS.
 
 - **Banco de Dados**
-  - **CloudSQL / RDS** com réplicas para alta disponibilidade.
-  - Backups automatizados e encriptados.
+  - **Azure PostgreSQL Flexible Server** com alta disponibilidade e backups automáticos.
+  - Replicação unidirecional para leitura on-premises (read-replica).
+  - Tráfego seguro via TLS.
 
 - **Cache**
-  - Redis (gerenciado) para reduzir latência nos acessos frequentes.
+  - **Azure Cache for Redis** (gerenciado), integrado via VNet e TLS, para reduzir latência.
 
 - **API Gateway**
-  - Segurança e roteamento de chamadas externas com autenticação JWT e rate limiting.
+  - **Azure API Management (APIM)** controla acesso, roteamento e autenticação (JWT, OAuth).
+  - Permite aplicar **políticas de rate limiting, logging e versionamento de APIs**.
 
 - **Serverless**
-  - Funções pontuais como geração de relatórios e envio de notificações.
+  - **Azure Function Apps** executam tarefas event-driven (como envio de notificações ou processamento de relatórios).
 
----
 
 ## Segurança e Acesso
 
