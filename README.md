@@ -36,7 +36,7 @@ O repositório contém exemplos de código e instruções para automatizar o pro
 
 ## 👨‍💼 Autor
 
-Desenvolvido por [Seu Nome], para o desafio técnico de Arquiteto de Soluções em Infraestrutura.
+Desenvolvido por Lincoln Venâncio, para o desafio técnico de Arquiteto de Soluções em Infraestrutura.
 
 ---
 
