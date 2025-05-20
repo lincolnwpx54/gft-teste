@@ -41,3 +41,5 @@ Desenvolvido por Lincoln Venâncio, para o desafio técnico de Arquiteto de Solu
 
 ---
 
+
+### Os trechos de código fornecidos têm finalidade ilustrativa, demonstrando a estrutura e organização da Infraestrutura como Código (IaC) utilizada para exemplificar a arquitetura proposta.
