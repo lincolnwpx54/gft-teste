@@ -100,7 +100,7 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
   - **Zabbix / Syslog (On-Premises)**
 - Alertas automáticos via:
   - Microsoft Teams, Email, SMS (via Azure Alerts)
-  - Integração com **Opsgenie ou PagerDuty**
+  - Integração com **Opsgenie**
 
 ---
 
