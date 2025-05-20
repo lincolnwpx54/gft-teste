@@ -1,14 +1,14 @@
 # Estratégia de Segurança — Infraestrutura Híbrida XPTO
 
-## 🎯 Objetivo
+## Objetivo
 
 Estabelecer uma arquitetura segura e resiliente para os serviços da empresa XPTO, com foco em **proteção contra acessos indevidos**, **governança de identidade**, **segurança de rede**, **auditoria** e **conformidade**.
 
 ---
 
-## 🔐 1. Autenticação e Gerenciamento de Identidades
+## 1. Autenticação e Gerenciamento de Identidades
 
-### 🧱 Active Directory (On-Premises)
+### Active Directory (On-Premises)
 
 - **Servidor Windows Server com AD Domain Services**
   - Domínio interno: `corp.xpto.local`
@@ -23,7 +23,7 @@ Estabelecer uma arquitetura segura e resiliente para os serviços da empresa XPT
   - Autenticação dos usuários do sistema de lançamentos via **LDAP/LDAPS**
   - Controle de permissões por grupo AD (RBAC)
 
-### ☁️ Integração com Nuvem (Hybrid Identity)
+### Integração com Nuvem (Hybrid Identity)
 
 - **Azure AD Connect**
   - Sincronização de usuários e grupos com Azure AD
@@ -34,7 +34,7 @@ Estabelecer uma arquitetura segura e resiliente para os serviços da empresa XPT
 
 ---
 
-## 🔒 2. Controle de Acesso à Infraestrutura
+## 2. Controle de Acesso à Infraestrutura
 
 | Componente     | Mecanismo de Acesso Seguro                     |
 |----------------|------------------------------------------------|
@@ -50,7 +50,7 @@ Estabelecer uma arquitetura segura e resiliente para os serviços da empresa XPT
 
 ---
 
-## 🌐 3. Segurança de Rede
+## 3. Segurança de Rede
 
 - **VPN Site-to-Site**
   - IPsec com criptografia AES-256
@@ -68,7 +68,7 @@ Estabelecer uma arquitetura segura e resiliente para os serviços da empresa XPT
 
 ---
 
-## 🛡️ 4. Proteções no SO e Aplicações
+## 4. Proteções no SO e Aplicações
 
 - **SSH Hardened**
   - Desativado login por senha
@@ -86,7 +86,7 @@ Estabelecer uma arquitetura segura e resiliente para os serviços da empresa XPT
 
 ---
 
-## 📊 5. Auditoria e Monitoramento
+## 5. Auditoria e Monitoramento
 
 | Componente              | Ferramenta                  | Objetivo                       |
 |-------------------------|-----------------------------|--------------------------------|
@@ -96,12 +96,12 @@ Estabelecer uma arquitetura segura e resiliente para os serviços da empresa XPT
 | SSH e sudo              | Auditd / journald            | Registro de comandos           |
 | Backup de logs          | Forward para central (ex: ELK)| Armazenamento e compliance    |
 
-- **Alertas automatizados** por Slack, email ou PagerDuty
+- **Alertas automatizados** por Slack, email e Opsgenie
 - **Monitoramento contínuo de integridade** (tripwire, auditd)
 
 ---
 
-## 🧠 6. Conformidade e Boas Práticas
+## 6. Conformidade e Boas Práticas
 
 - **MFA obrigatório** para administradores e usuários críticos
 - **Revisão de acessos mensais**
@@ -111,7 +111,7 @@ Estabelecer uma arquitetura segura e resiliente para os serviços da empresa XPT
 
 ---
 
-## 🔄 7. Futuras Melhorias
+## 7. Futuras Melhorias
 
 - Adoção de **Zero Trust Network Access (ZTNA)**
 - Integração com **IAM centralizado** (Okta, Auth0, Keycloak)

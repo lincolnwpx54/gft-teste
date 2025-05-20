@@ -1,6 +1,6 @@
 # Arquitetura da Solução Híbrida — XPTO
 
-## 🧭 Visão Geral
+## Visão Geral
 
 A arquitetura proposta visa modernizar a infraestrutura legada da empresa XPTO, atualmente baseada em ambiente on-premises, migrando para um modelo **híbrido** que aproveita os benefícios de escalabilidade, segurança e resiliência proporcionados pela nuvem.
 
@@ -14,7 +14,7 @@ A solução foi desenhada para suportar os seguintes pilares:
 
 ---
 
-## 🌐 Diagrama de Topologia
+## Diagrama de Topologia
 
 ![Diagrama da Arquitetura](diagrama/topologia.png)
 
@@ -22,7 +22,7 @@ A solução foi desenhada para suportar os seguintes pilares:
 
 ---
 
-## 🧩 Componentes Principais
+## Componentes Principais
 
 ### 🔹 On-Premises
 
@@ -31,7 +31,7 @@ A solução foi desenhada para suportar os seguintes pilares:
   - Executado em uma VM com balanceador local (HAProxy/Nginx).
   - Comunicação segura com os componentes em nuvem via VPN e TLS.
 
-### 🔹 Cloud (AWS/GCP/Azure)
+### Cloud (AWS/GCP/Azure)
 
 - **Serviço de Consolidado Diário**
   - Migrado para ambiente cloud com autoescalabilidade via Kubernetes.
@@ -53,7 +53,7 @@ A solução foi desenhada para suportar os seguintes pilares:
 
 ---
 
-## 🔒 Segurança e Acesso
+## Segurança e Acesso
 
 - **VPN Site-to-Site**
   - Interligação segura entre o datacenter local e a nuvem.
@@ -68,7 +68,7 @@ A solução foi desenhada para suportar os seguintes pilares:
 
 ---
 
-## 📡 Integração On-Premises + Cloud
+## Integração On-Premises + Cloud
 
 | Recurso             | Local               | Nuvem                    | Comunicação                     |
 |---------------------|---------------------|---------------------------|---------------------------------|
@@ -78,7 +78,7 @@ A solução foi desenhada para suportar os seguintes pilares:
 
 ---
 
-## ⚙️ Justificativas Arquiteturais
+## Justificativas Arquiteturais
 
 - **Ambiente Híbrido** permite aproveitamento de infraestrutura existente com elasticidade da nuvem.
 - **Kubernetes** oferece escalabilidade automática e resiliência.
@@ -89,7 +89,7 @@ A solução foi desenhada para suportar os seguintes pilares:
 
 ---
 
-## 🚧 Considerações Futuras
+## Considerações Futuras
 
 - Migração total para cloud em médio prazo.
 - Adoção de **service mesh** para observabilidade e segurança intra-serviços (ex: Istio).

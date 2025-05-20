@@ -1,14 +1,14 @@
 # Estratégia FinOps — Gestão de Custos em Infraestrutura Híbrida
 
-## 🎯 Objetivo
+## Objetivo
 
 A estratégia FinOps tem como foco **maximizar o valor da nuvem**, promovendo a eficiência financeira sem comprometer a performance ou a resiliência dos serviços. Neste projeto, são aplicadas práticas contínuas de **monitoramento, otimização e previsibilidade de custos**, alinhadas aos pilares do FinOps: **Colaboração, Visibilidade e Governança**.
 
 ---
 
-## 🧩 Abordagem por Ambiente
+## Abordagem por Ambiente
 
-### 🏢 On-Premises
+### On-Premises
 
 - **Custo Fixo Controlado**
   - Aproveitamento da infraestrutura existente.
@@ -19,7 +19,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem**, promovendo a 
 
 ---
 
-### ☁️ Cloud
+### Cloud
 
 - **Escalabilidade sob demanda**
   - Habilitação de **autoescalabilidade horizontal** no Kubernetes (ex: HPA).
@@ -38,7 +38,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem**, promovendo a 
 
 ---
 
-## 💰 Práticas Adotadas
+## Práticas Adotadas
 
 | Estratégia                     | Descrição                                                                 |
 |-------------------------------|---------------------------------------------------------------------------|
@@ -51,7 +51,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem**, promovendo a 
 
 ---
 
-## 🛠️ Ferramentas
+## Ferramentas
 
 - **Grafana + Prometheus** — para dashboards de consumo de recursos e métricas de uso.
 - **Cloud Billing** (AWS, GCP ou Azure) — para relatórios detalhados de custos por serviço.
@@ -60,7 +60,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem**, promovendo a 
 
 ---
 
-## 🚦 Governança de Custos
+## Governança de Custos
 
 - Reuniões mensais de revisão de gastos por time/produto.
 - Checklists de validação antes da criação de novos recursos.
@@ -68,7 +68,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem**, promovendo a 
 
 ---
 
-## 🔄 Ciclo Contínuo de FinOps
+## Ciclo Contínuo de FinOps
 
 ```mermaid
 graph TD

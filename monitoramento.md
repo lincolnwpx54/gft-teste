@@ -1,12 +1,12 @@
 # Estratégia de Monitoramento e Observabilidade
 
-## 🎯 Objetivo
+## Objetivo
 
 Garantir **alta visibilidade**, **detecção proativa de falhas** e **resposta rápida a incidentes**, monitorando todos os componentes da infraestrutura híbrida da XPTO, incluindo servidores, containers, rede, banco de dados, aplicações e usuários.
 
 ---
 
-## 🔭 1. Visão Geral
+## 1. Visão Geral
 
 A estratégia de monitoramento cobre três pilares da observabilidade:
 
@@ -18,7 +18,7 @@ Cada componente da infraestrutura é integrado a pelo menos uma dessas camadas d
 
 ---
 
-## 🧩 2. Componentes Monitorados
+## 2. Componentes Monitorados
 
 | Componente               | Métricas           | Logs               | Alertas        |
 |--------------------------|--------------------|---------------------|----------------|
@@ -33,21 +33,21 @@ Cada componente da infraestrutura é integrado a pelo menos uma dessas camadas d
 
 ---
 
-## 🖥️ 3. Monitoramento de Infraestrutura
+## 3. Monitoramento de Infraestrutura
 
-### 🔹 On-Premises
+### On-Premises
 - **Zabbix** ou **Prometheus Node Exporter** para VMs, rede e sistema
 - **Grafana** para visualização consolidada
 - **Alertmanager** para disparo de alertas
 
-### 🔹 Cloud
+### Cloud
 - **Cloud Monitoring** (GCP/AWS/Azure)
 - **Kubernetes Metrics Server + Prometheus** (via Helm)
 - **Grafana Cloud ou self-hosted**
 
 ---
 
-## 📈 4. Logs e Auditoria
+## 4. Logs e Auditoria
 
 - **Centralização de logs**:
   - VMs on-prem: rsyslog → Zabbix ou ELK stack
@@ -63,7 +63,7 @@ Cada componente da infraestrutura é integrado a pelo menos uma dessas camadas d
 
 ---
 
-## 🔧 5. Dashboards e Métricas
+## 5. Dashboards e Métricas
 
 - **Grafana**: dashboards unificados com visão de:
   - Tempo de resposta das APIs
@@ -79,7 +79,7 @@ Cada componente da infraestrutura é integrado a pelo menos uma dessas camadas d
 
 ---
 
-## 📡 6. Monitoramento da Rede
+## 6. Monitoramento da Rede
 
 - **VPN Gateway**:
   - Ping, jitter e latência entre sites
@@ -94,13 +94,13 @@ Cada componente da infraestrutura é integrado a pelo menos uma dessas camadas d
 
 ---
 
-## 🚨 7. Alertas e Notificações
+## 7. Alertas e Notificações
 
 - Integração com:
   - **Email**
   - **Slack**
   - **Microsoft Teams**
-  - **PagerDuty** ou **Opsgenie** (para incidentes graves)
+  - **Opsgenie** (para incidentes graves)
 
 - **Tipos de Alertas**:
   - Alta CPU ou memória
@@ -111,7 +111,7 @@ Cada componente da infraestrutura é integrado a pelo menos uma dessas camadas d
 
 ---
 
-## 🔍 8. Tracing e Diagnóstico
+## 8. Tracing e Diagnóstico
 
 - **OpenTelemetry** ou **Jaeger** (opcional)
   - Rastreio de chamadas entre microserviços
@@ -119,7 +119,7 @@ Cada componente da infraestrutura é integrado a pelo menos uma dessas camadas d
 
 ---
 
-## 🔐 9. Observabilidade e Segurança
+## 9. Observabilidade e Segurança
 
 - Correlacionamento entre logs de segurança e acesso
 - Dashboards com tentativas de login mal sucedidas
@@ -127,7 +127,7 @@ Cada componente da infraestrutura é integrado a pelo menos uma dessas camadas d
 
 ---
 
-## 🔄 10. Futuras Evoluções
+## 10. Futuras Evoluções
 
 - Adoção de **AI Ops** para detecção preditiva de falhas
 - Uso de **tempo de atividade por usuário** (end-to-end UX)

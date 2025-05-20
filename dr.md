@@ -1,12 +1,12 @@
 # Plano de Disaster Recovery (DR)
 
-## 🎯 Objetivo
+## Objetivo
 
 Este plano de recuperação de desastres tem como objetivo garantir a **continuidade operacional** dos serviços da empresa XPTO em cenários de falhas críticas, indisponibilidade de componentes ou desastres em data centers locais ou na nuvem.
 
 ---
 
-## 🧠 Conceitos Fundamentais
+## Conceitos Fundamentais
 
 | Termo | Definição |
 |-------|-----------|
@@ -15,7 +15,7 @@ Este plano de recuperação de desastres tem como objetivo garantir a **continui
 
 ---
 
-## ⏱️ Metas de Recuperação
+## Metas de Recuperação
 
 | Serviço                    | RTO       | RPO       |
 |----------------------------|-----------|-----------|

@@ -1,10 +1,10 @@
 # Desafio Técnico — Arquiteto de Soluções em Infraestrutura
 
-## 📌 Sobre o Projeto
+## Sobre o Projeto
 
 Este projeto foi desenvolvido como solução para o desafio técnico proposto pela empresa XPTO, com foco na migração de infraestrutura de um ambiente on-premises para um modelo híbrido (cloud + local). A solução foi desenhada para garantir escalabilidade, segurança, resiliência e controle de custos através de boas práticas de arquitetura e automação.
 
-## 🏗️ Componentes da Solução
+## Componentes da Solução
 
 - **Ambiente Híbrido (On-prem + Cloud)**
 - **Alta Disponibilidade e Escalabilidade**
@@ -14,7 +14,7 @@ Este projeto foi desenvolvido como solução para o desafio técnico proposto pe
 - **Monitoramento e Observabilidade**
 - **Estratégia FinOps**
 
-## 📁 Documentação
+## Documentação
 
 | Documento         | Descrição                                                                 |
 |------------------|---------------------------------------------------------------------------|
@@ -26,15 +26,15 @@ Este projeto foi desenvolvido como solução para o desafio técnico proposto pe
 | `monitoramento.md`| Proposta de observabilidade e monitoramento da rede                      |
 | `osi.md`          | Aplicação do modelo OSI na solução para performance e segurança           |
 
-## 📊 Diagrama de Topologia
+## Diagrama de Topologia
 
 A topologia da solução encontra-se no diretório `diagrama/topologia.png`.
 
-## 🚀 Como Utilizar
+## Como Utilizar
 
 O repositório contém exemplos de código e instruções para automatizar o provisionamento da infraestrutura utilizando Terraform e Ansible (ver `automacao.md`).
 
-## 👨‍💼 Autor
+## Autor
 
 Desenvolvido por Lincoln Venâncio, para o desafio técnico de Arquiteto de Soluções em Infraestrutura.
 

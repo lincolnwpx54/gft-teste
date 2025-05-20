@@ -1,12 +1,12 @@
 # Dimensionamento de Recursos
 
-## 📌 Visão Geral
+## Visão Geral
 
 O dimensionamento da infraestrutura leva em consideração os dois serviços principais — **Controle de Lançamentos** e **Consolidado Diário** — com foco em performance, escalabilidade e otimização de custos. O modelo proposto utiliza uma abordagem híbrida, aplicando **escala vertical para VMs locais** e **escala horizontal para workloads em nuvem**.
 
 ---
 
-## 🧠 Princípios Adotados
+## Princípios Adotados
 
 - **Alta disponibilidade (HA)**
 - **Escalabilidade automática**
@@ -16,7 +16,7 @@ O dimensionamento da infraestrutura leva em consideração os dois serviços pri
 
 ---
 
-## 🖥️ Serviço de Controle de Lançamentos (On-Premises)
+## Serviço de Controle de Lançamentos (On-Premises)
 
 | Recurso               | Valor Sugerido              |
 |-----------------------|-----------------------------|
@@ -33,7 +33,7 @@ O dimensionamento da infraestrutura leva em consideração os dois serviços pri
 
 ---
 
-## ☁️ Serviço de Consolidado Diário (Cloud - Kubernetes)
+## Serviço de Consolidado Diário (Cloud - Kubernetes)
 
 | Recurso                        | Valor Sugerido                  |
 |--------------------------------|---------------------------------|
@@ -52,7 +52,7 @@ O dimensionamento da infraestrutura leva em consideração os dois serviços pri
 
 ---
 
-## 🧱 Banco de Dados (Cloud + Replica On-Prem)
+## Banco de Dados (Cloud + Replica On-Prem)
 
 | Recurso                        | Valor Sugerido              |
 |--------------------------------|-----------------------------|
@@ -66,7 +66,7 @@ O dimensionamento da infraestrutura leva em consideração os dois serviços pri
 
 ---
 
-## 🔁 Cache (Cloud Redis)
+## Cache (Cloud Redis)
 
 | Recurso         | Valor Sugerido         |
 |-----------------|------------------------|
@@ -77,7 +77,7 @@ O dimensionamento da infraestrutura leva em consideração os dois serviços pri
 
 ---
 
-## 🔧 Componentes Auxiliares
+## Componentes Auxiliares
 
 - **API Gateway**
   - Escala automática
@@ -94,14 +94,14 @@ O dimensionamento da infraestrutura leva em consideração os dois serviços pri
 
 ---
 
-## 📈 Capacidade de Crescimento
+## Capacidade de Crescimento
 
 - **Serviço de Consolidação** pode escalar horizontalmente de 3 para até 10 réplicas sem necessidade de intervenção manual.
 - Banco de dados escalável verticalmente com upgrade automatizado de recursos conforme crescimento do volume de dados.
 
 ---
 
-## 📉 Tolerância a Falhas
+## Tolerância a Falhas
 
 - **Serviço de Lançamentos** mantém VM standby local com IP reservado.
 - **Serviço de Consolidação** é replicado entre zonas de disponibilidade.
