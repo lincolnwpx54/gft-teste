@@ -176,4 +176,3 @@ Azure Resource Manager (ARM API)
             - AKS
             - PostgreSQL
             - Redis
-
