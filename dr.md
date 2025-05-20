@@ -1,12 +1,12 @@
-# 🔄 Plano de Disaster Recovery (DR)
+# Plano de Disaster Recovery (DR)
 
-## 🎯 Objetivo
+## Objetivo
 
 Este plano visa garantir a **continuidade operacional** dos serviços da empresa XPTO em cenários de falhas críticas, indisponibilidade de componentes ou desastres em data centers locais ou na nuvem (Azure).
 
 ---
 
-## 🧠 Conceitos Fundamentais
+## Conceitos Fundamentais
 
 | Termo | Definição |
 |-------|-----------|
@@ -15,7 +15,7 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
 
 ---
 
-## 🕒 Metas de Recuperação
+## Metas de Recuperação
 
 | Serviço                    | RTO       | RPO       |
 |----------------------------|-----------|-----------|
@@ -27,9 +27,9 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
 
 ---
 
-## 🛠️ Estratégias Adotadas
+## Estratégias Adotadas
 
-### 🧱 Banco de Dados (Azure PostgreSQL)
+### Banco de Dados (Azure PostgreSQL)
 
 - Serviço gerenciado com:
   - **Backup automático com retenção**
@@ -37,28 +37,28 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
   - **Alta disponibilidade zone-redundant**
 - Read-replica local para contingência
 
-### ☸️ Serviços em Nuvem (Consolidação)
+### Serviços em Nuvem (Consolidação)
 
 - Implantação no **AKS com múltiplas zonas**
 - **Autoescalabilidade (HPA)** e reinício automático de pods
 - Liveness/Readiness probes
 - Rollback automático via estratégia de deploy do Kubernetes
 
-### 🖥️ Serviços On-Premises (Lançamentos)
+### Serviços On-Premises (Lançamentos)
 
 - VMs com monitoramento contínuo (Zabbix)
 - Failover manual ou automatizado para standby
 - Backups locais agendados via Ansible
 - Upload dos backups para **Azure Storage Account**
 
-### ⚡ Cache (Redis)
+### Cache (Redis)
 
 - **Azure Cache for Redis** gerenciado, com failover interno
 - Dados voláteis — não exigem replicação cross-region
 
 ---
 
-## 🔗 Comunicação e Failover
+## Comunicação e Failover
 
 - **Azure VPN Gateway** + **Local Network Gateway**
   - Site-to-site IPsec com failover de túneis
@@ -68,15 +68,15 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
 
 ---
 
-## 🚨 Procedimentos de Recuperação
+## Procedimentos de Recuperação
 
-### 📍 Falha no On-Premises
+### Falha no On-Premises
 
 1. Redirecionar tráfego para ambiente na nuvem via DNS
 2. Promover VM standby se for uma falha parcial
 3. Restaurar backup do PostgreSQL local ou conectar à réplica cloud
 
-### 📍 Falha na Nuvem (Azure)
+### Falha na Nuvem (Azure)
 
 1. Redirecionar chamadas críticas para backup DNS (on-prem)
 2. Ativar PostgreSQL local como leitura temporária
@@ -84,7 +84,7 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
 
 ---
 
-## 🧪 Testes e Simulações
+## Testes e Simulações
 
 - **Testes de failover semestrais** em cenários controlados
 - **Verificação de integridade de backup semanal**
@@ -93,7 +93,7 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
 
 ---
 
-## 📘 Registro e Comunicação
+## Registro e Comunicação
 
 - Logs armazenados via:
   - **Log Analytics Workspace (Azure)**
@@ -104,7 +104,7 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
 
 ---
 
-## 🧰 Ferramentas Suporte ao DR
+## Ferramentas Suporte ao DR
 
 | Ferramenta         | Função                             |
 |--------------------|------------------------------------|
@@ -118,7 +118,7 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
 
 ---
 
-## 🔮 Evoluções Futuras
+## Evoluções Futuras
 
 - Adoção de **Azure Automation Runbooks** para orquestração de failover
 - Uso de **Azure Traffic Manager** para distribuição geográfica de DNS

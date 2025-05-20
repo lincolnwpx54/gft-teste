@@ -1,6 +1,6 @@
-# 📡 Estratégia de Monitoramento e Observabilidade
+# Estratégia de Monitoramento e Observabilidade
 
-## 🎯 Objetivo
+## Objetivo
 
 Garantir **alta visibilidade**, **detecção proativa de falhas** e **resposta rápida a incidentes**, monitorando todos os componentes da infraestrutura híbrida da XPTO, incluindo servidores, containers, rede, banco de dados, aplicações e usuários.
 
@@ -35,11 +35,11 @@ Cada componente é integrado a pelo menos uma dessas camadas.
 
 ## 3. Monitoramento da Infraestrutura
 
-### 🏢 On-Premises
+### On-Premises
 - **Zabbix** (ou Prometheus Exporter) para VMs e rede local
 - **Grafana** para visualização unificada
 
-### ☁️ Azure
+### Azure
 - **Azure Monitor** para métricas e alertas
 - **Azure Log Analytics Workspace** para logs centralizados
 - **Application Insights** para telemetria de aplicações (AKS, Functions)

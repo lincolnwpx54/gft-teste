@@ -25,14 +25,14 @@ https://www.onemodel.app/d/z3kyrGSB5VHflEQbrTeDF
 
 ## Componentes Principais
 
-### 🔹 On-Premises
+### On-Premises
 
 - **Serviço de Controle de Lançamentos**
   - Mantido localmente por requisitos de compliance e dados sensíveis.
   - Executado em uma VM com balanceador local (HAProxy/Nginx).
   - Comunicação segura com os componentes em nuvem via VPN e TLS.
 
-### ☁️ Cloud (Azure)
+### Cloud (Azure)
 
 - **Serviço Consolidado Diário**
   - Hospedado no **Azure Kubernetes Service (AKS)** com autoescalabilidade (HPA).
@@ -53,7 +53,6 @@ https://www.onemodel.app/d/z3kyrGSB5VHflEQbrTeDF
 
 - **Serverless**
   - **Azure Function Apps** executam tarefas event-driven (como envio de notificações ou processamento de relatórios).
-
 
 ## Segurança e Acesso
 

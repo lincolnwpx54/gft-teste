@@ -1,14 +1,14 @@
-# 💰 Estratégia FinOps — Gestão de Custos em Infraestrutura Híbrida
+# Estratégia FinOps — Gestão de Custos em Infraestrutura Híbrida
 
-## 🎯 Objetivo
+## Objetivo
 
 A estratégia FinOps tem como foco **maximizar o valor da nuvem Azure**, promovendo eficiência financeira sem comprometer a performance ou a resiliência dos serviços. O projeto adota práticas contínuas de **monitoramento, otimização e previsibilidade de custos**, alinhadas aos pilares: **Colaboração, Visibilidade e Governança**.
 
 ---
 
-## 🧭 Abordagem por Ambiente
+## Abordagem por Ambiente
 
-### 🏢 On-Premises
+### On-Premises
 
 - **Custo Fixo Controlado**
   - Aproveitamento da infraestrutura existente.
@@ -21,7 +21,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem Azure**, promove
 
 ---
 
-### ☁️ Azure Cloud
+### Azure Cloud
 
 - **Escalabilidade sob Demanda**
   - Autoescalabilidade horizontal no **AKS (HPA)**.
@@ -41,7 +41,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem Azure**, promove
 
 ---
 
-## 📌 Práticas Adotadas
+## Práticas Adotadas
 
 | Estratégia                     | Descrição                                                                 |
 |-------------------------------|---------------------------------------------------------------------------|
@@ -54,7 +54,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem Azure**, promove
 
 ---
 
-## 🧰 Ferramentas Utilizadas
+## Ferramentas Utilizadas
 
 - **Azure Cost Management + Billing** — controle e projeção de gastos
 - **Azure Advisor** — recomendações de otimização de custo/performance
@@ -64,7 +64,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem Azure**, promove
 
 ---
 
-## 🏛️ Governança de Custos
+## Governança de Custos
 
 - Reuniões mensais por equipe/produto para análise de gastos
 - Validação obrigatória de tags e ambiente antes do provisionamento
@@ -73,7 +73,7 @@ A estratégia FinOps tem como foco **maximizar o valor da nuvem Azure**, promove
 
 ---
 
-## 🔁 Ciclo Contínuo de FinOps
+## Ciclo Contínuo de FinOps
 
 ```mermaid
 graph TD
