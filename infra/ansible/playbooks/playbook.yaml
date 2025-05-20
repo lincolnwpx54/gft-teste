@@ -1,0 +1,16 @@
+- name: Configurar Nginx na VM local
+  hosts: onprem_servers
+  become: yes
+
+  tasks:
+    - name: Instala Nginx
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Inicia serviço
+      service:
+        name: nginx
+        state: started
+        enabled: yes
