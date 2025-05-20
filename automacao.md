@@ -44,8 +44,11 @@ infra/
     ├── dev/
     └── prod/
 
-### Topologia Devops (CI/CD)
+---
 
+## 🚀 TOPOLOGIA DEVOPS (CI/CD)
+
+```text
 Engenheiro DevOps
       │
       ▼
@@ -57,4 +60,8 @@ Azure DevOps Pipeline (YAML)
 Azure Resource Manager (ARM API)
       │
       └── Provisão de Recursos:
-            - VNet, AKS, PostgreSQL, Redis
+            - VNet
+            - AKS
+            - PostgreSQL
+            - Redis
+
