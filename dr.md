@@ -113,7 +113,7 @@ Este plano visa garantir a **continuidade operacional** dos serviços da empresa
 | **Azure Backup**   | Backup automatizado dos dados       |
 | **Zabbix**         | Monitoramento de VMs on-prem        |
 | **Azure Monitor**  | Observabilidade da nuvem            |
-| **Grafana**        | Painéis unificados com alertas      |
+| **Grafana**        | Painéis unificados com alertas, Auto-hospedado no AKS      |
 | **Azure Key Vault**| Gestão de segredos pós-falha        |
 
 ---
