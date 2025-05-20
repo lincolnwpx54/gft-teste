@@ -90,6 +90,65 @@ https://www.onemodel.app/d/z3kyrGSB5VHflEQbrTeDF
 
 ---
 
+# Naming Convention — Infraestrutura XPTO
+
+Padronização dos nomes de recursos da infraestrutura híbrida para garantir organização, rastreabilidade, governança e consistência no Azure e no Terraform.
+
+---
+
+## Padrão Geral
+
+- `projeto`: nome base do sistema ou empresa (ex: `xpto`)
+- `tipo`: recurso (vnet, aks, db, apim, etc.)
+- `ambiente`: dev, stg, prod
+- `região`: região Azure (ex: brazilsouth, eastus)
+- `identificador`: uso opcional para distinguir instâncias
+
+---
+
+## Exemplo de Nomes por Tipo de Recurso
+
+| Recurso                     | Nome Exemplo                        |
+|-----------------------------|-------------------------------------|
+| Resource Group              | `rg-xpto-prod-brazilsouth`          |
+| Virtual Network             | `xpto-vnet-prod-brazilsouth`        |
+| Subnet App                  | `xpto-subnet-app-prod-brazilsouth`  |
+| Subnet Data                 | `xpto-subnet-data-prod-brazilsouth` |
+| Subnet Gateway              | `xpto-subnet-gw-prod-brazilsouth`   |
+| Azure Kubernetes Service    | `xpto-aks-prod-brazilsouth`         |
+| PostgreSQL Server           | `xpto-db-prod-brazilsouth`          |
+| Redis Cache                 | `xpto-redis-prod-brazilsouth`       |
+| Application Gateway         | `xpto-appgw-prod-brazilsouth`       |
+| API Management              | `xpto-apim-prod-brazilsouth`        |
+| Key Vault                   | `xpto-kv-prod-brazilsouth`          |
+| Log Analytics Workspace     | `xpto-logs-prod-brazilsouth`        |
+| VPN Gateway                 | `xpto-vpngw-prod-brazilsouth`       |
+| Public IP for Gateway       | `xpto-ip-appgw-prod-brazilsouth`    |
+| Storage Account (TF State)  | `stxptoinfradev001`                 |
+
+---
+
+## Tags Recomendadas
+
+| Tag           | Valor Exemplo        | Descrição                               |
+|---------------|----------------------|------------------------------------------|
+| `project`     | `xpto-infra`         | Nome do projeto ou sistema               |
+| `env`         | `dev`, `stg`, `prod` | Ambiente da infraestrutura               |
+| `owner`       | `infra@xpto.com.br`  | Responsável técnico                      |
+| `costcenter`  | `TI-001`             | Centro de custo                          |
+| `managed_by`  | `terraform`          | Ferramenta que gerencia o recurso        |
+
+---
+
+## Boas Práticas
+
+- Utilize apenas **letras minúsculas**, números e hífens (`-`)
+- Evite nomes longos demais (limite de 80-90 caracteres em alguns recursos Azure)
+- Mantenha a convenção em todos os ambientes e automações
+- Tags devem ser obrigatórias via `default_tags` no Terraform
+
+---
+
 ## Considerações Futuras
 
 - Migração total para cloud em médio prazo.
@@ -98,4 +157,23 @@ https://www.onemodel.app/d/z3kyrGSB5VHflEQbrTeDF
 - Substituição das VMs locais por contêineres em ambiente edge/híbrido.
 
 ---
+
+## TOPOLOGIA DEVOPS (CI/CD)
+
+```text
+Engenheiro DevOps
+      │
+      ▼
+Azure DevOps Pipeline (YAML)
+      │
+      ├── Terraform Init / Plan / Apply
+      │
+      ▼
+Azure Resource Manager (ARM API)
+      │
+      └── Provisão de Recursos:
+            - VNet
+            - AKS
+            - PostgreSQL
+            - Redis
 

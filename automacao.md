@@ -43,25 +43,3 @@ infra/
 └── environments/
     ├── dev/
     └── prod/
-
----
-
-## 🚀 TOPOLOGIA DEVOPS (CI/CD)
-
-```text
-Engenheiro DevOps
-      │
-      ▼
-Azure DevOps Pipeline (YAML)
-      │
-      ├── Terraform Init / Plan / Apply
-      │
-      ▼
-Azure Resource Manager (ARM API)
-      │
-      └── Provisão de Recursos:
-            - VNet
-            - AKS
-            - PostgreSQL
-            - Redis
-
